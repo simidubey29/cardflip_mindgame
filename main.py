@@ -259,6 +259,17 @@ while running:
     screen.blit(best_text, (30, 820))
 
     # ======================================
+    # Author Name
+    # ======================================
+    author_text = small_font.render(
+        "Made by Simi Dubey",
+        True,
+        WHITE
+    )
+
+    screen.blit(author_text, (730, 810))
+
+    # ======================================
     # Timer
     # ======================================
     if game_started and not game_over:
@@ -310,8 +321,7 @@ while running:
             mouse = pygame.mouse.get_pos()
 
             # Start game
-            if start_btn.collidepoint(mouse):
-
+            if start_btn.collidepoint(mouse) and not game_started:
                 game_started = True
 
                 start_time = time.time()
@@ -347,17 +357,10 @@ while running:
     # ======================================
     if first_card and second_card:
 
-        author_text = small_font.render(
-            "Made by Simi Dubey",
-            True,
-            WHITE
-        )
-
-        screen.blit(author_text, (20, 730))
 
         pygame.display.update()
 
-        pygame.time.delay(600)
+        pygame.time.delay(60)
 
         # Match found
         if first_card.image == second_card.image:
